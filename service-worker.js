@@ -3,13 +3,15 @@ const CACHE_NAME = 'v1.0';
 // Ресурсы для кэширования при установке
 const PRECACHE_URLS = [
   '/',
-  '/main.html',
+  '/index.html',
+  '/login.html',
+  '/register_teacher.html',
+  '/register_student.html',
+  '/reviews.html',
+  '/teachers.html',
   '/styles.css',
-  '/script.js',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
-  '/screenshots/desktop.png',
-  '/screenshots/mobile.png'
 ];
 
 // Установка Service Worker и кэширование ресурсов
