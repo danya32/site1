@@ -1,8 +1,9 @@
-// Версия кэша - при обновлении кэш автоматически заменится
-const CACHE_NAME = 'v1.0';
-// Ресурсы для кэширования при установке
-const PRECACHE_URLS = [
-  '/',
+// Проверяем, является ли скрипт исполняемым в контексте Service Worker
+if (typeof self === 'object' && self instanceof ServiceWorkerGlobalScope) {
+  // ========== Код Service Worker ========== //
+  const CACHE_NAME = 'v1.0';
+  const PRECACHE_URLS = [
+    '/',
   '/index.html',
   '/login.html',
   '/register_teacher.html',
@@ -11,44 +12,45 @@ const PRECACHE_URLS = [
   '/teachers.html',
   '/styles.css',
   '/icons/icon-192.png',
-  '/icons/icon-512.png',
-];
+  '/icons/icon-512.png'
+  ];
 
-// Установка Service Worker и кэширование ресурсов
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(PRECACHE_URLS))
-      .then(self.skipWaiting()) // Активирует SW без ожидания
-  );
-});
+  self.addEventListener('install', event => {
+    event.waitUntil(
+      caches.open(CACHE_NAME)
+        .then(cache => cache.addAll(PRECACHE_URLS))
+        .then(() => self.skipWaiting())
+    );
+  });
 
-// Активация и очистка старых кэшей
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cache => {
-          if (cache !== CACHE_NAME) {
-            return caches.delete(cache); // Удаляем старые кэши
-          }
+  self.addEventListener('activate', event => {
+    event.waitUntil(
+      caches.keys().then(cacheNames => {
+        return Promise.all(
+          cacheNames.map(cache => {
+            if (cache !== CACHE_NAME) return caches.delete(cache);
+          })
+        );
+      }).then(() => self.clients.claim())
+    );
+  });
+
+  self.addEventListener('fetch', event => {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          const responseClone = response.clone();
+          caches.open(CACHE_NAME)
+            .then(cache => cache.put(event.request, responseClone));
+          return response;
         })
-      );
-    }).then(() => self.clients.claim()) // Контролирует страницы сразу
-  );
-});
-
-// Стратегия: "Сначала сеть, потом кэш" (с fallback для оффлайн-режима)
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    fetch(event.request)
-      .then(response => {
-        // Клонируем ответ для кэширования
-        const responseClone = response.clone();
-        caches.open(CACHE_NAME)
-          .then(cache => cache.put(event.request, responseClone));
-        return response;
-      })
-      .catch(() => caches.match(event.request)) // Оффлайн-режим
-  );
-});
+        .catch(() => caches.match(event.request))
+    );
+  });
+} 
+// Если скрипт выполняется в обычном контексте (не SW), регистрируем его
+else if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(reg => console.log('Service Worker зарегистрирован:', reg.scope))
+    .catch(err => console.log('Ошибка регистрации:', err));
+}
