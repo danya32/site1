@@ -1,6 +1,4 @@
-// Проверяем, является ли скрипт исполняемым в контексте Service Worker
-if (typeof self === 'object' && self instanceof ServiceWorkerGlobalScope) {
-  // ========== Код Service Worker ========== //
+
   const CACHE_NAME = 'v1.0';
   const PRECACHE_URLS = [
     '/',
@@ -47,10 +45,4 @@ if (typeof self === 'object' && self instanceof ServiceWorkerGlobalScope) {
         .catch(() => caches.match(event.request))
     );
   });
-} 
-// Если скрипт выполняется в обычном контексте (не SW), регистрируем его
-else if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(reg => console.log('Service Worker зарегистрирован:', reg.scope))
-    .catch(err => console.log('Ошибка регистрации:', err));
-}
+
