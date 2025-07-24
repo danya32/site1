@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="manifest" href="manifest.json">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>УмникУм - Регистрация</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-header">
+        <a href="index.html" class="logo">💡 УмникУм</a>
+    </div>
+    
+    <div class="register-container">
+        <div class="register-box">
+            <h1>Регистрация</h1>
+            
+            <div class="user-type">
+                <button class="user-type-option" onclick="window.location.href='register_student.html'">Я ученик</button>
+                <button class="user-type-option active">Я репетитор</button>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" id="name" placeholder="Введите ваше имя">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Введите ваш email">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" placeholder="Придумайте пароль">
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Подтвердите пароль</label>
+                <input type="password" id="confirm-password" placeholder="Повторите пароль">
+            </div>
+            
+            <button class="register-submit">Зарегистрироваться</button>
+            
+            <div class="register-links">
+                Уже есть аккаунт? <a href="login.html">Войти</a>
+                <span> | </span>
+                <a href="index.html">На главную</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 УмникУм. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-7890 | Email: info@umnikum.ru</p>
+    </footer>
+</body>
+</html>

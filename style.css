@@ -1,0 +1,611 @@
+/* === Базовые стили === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+
+/* === Шапка === */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* === Поиск === */
+.search-box {
+    flex-grow: 1;
+    max-width: 500px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+/* === Кнопки входа/регистрации === */
+.auth-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.login-btn {
+    background: #3498db;
+    color: white;
+}
+
+.register-btn {
+    background: #f8f9fa;
+    color: #2c3e50;
+    border: 1px solid #ddd !important;
+}
+
+/* === Фильтры === */
+.filters-container {
+    padding: 15px 30px;
+    background: #f1f3f4;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.filter-dropdown {
+    position: relative;
+    flex-grow: 1;
+    max-width: 250px;
+}
+
+.filter-btn {
+    padding: 12px 20px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    border-radius: 8px;
+    padding: 10px 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.filter-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* === Главный контент === */
+.index-content {
+    flex: 1;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.welcome-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.welcome-section h1 {
+    font-size: 42px;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* === Блок с преимуществами === */
+.features-grid {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    background: #e6f2ff;
+    border: 1px solid #cce0ff;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.feature-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* === Карточки преподавателей === */
+.teachers-container {
+    flex: 1;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.teacher-card {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.teacher-photo {
+    flex: 1;
+    max-width: 200px;
+    background: #f1f3f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.teacher-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.teacher-info {
+    flex: 3;
+    padding: 25px;
+}
+
+.teacher-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.teacher-subjects {
+    color: #3498db;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.teacher-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+}
+
+.detail-item i {
+    margin-right: 5px;
+    color: #7f8c8d;
+}
+
+.teacher-formats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.format-tag {
+    background: #e6f2ff;
+    color: #3498db;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.teacher-description {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.teacher-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.contact-btn {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+/* === Страница регистрации === */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.register-box {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #e0e0e0;
+}
+
+.register-box h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 32px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.register-submit, .login-submit {
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.register-links, .login-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-links a, .login-links a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.user-type a {
+    color: #000;
+    text-decoration: none;
+}
+
+.user-type {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.user-type-option {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.user-type-option.active {
+    background: #e6f2ff;
+    border-color: #3498db;
+}
+
+/* === Страница входа === */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.login-box {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #e0e0e0;
+}
+
+.login-box h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 32px;
+}
+
+/* === Заголовок страницы === */
+.page-title {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* === Подвал === */
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: auto;
+}
+
+
+/* ==================== */
+/* СТИЛИ ДЛЯ ОТЗЫВОВ */
+/* ==================== */
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.review-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+.review-card h3 {
+    color: #2c3e50;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.review-text {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-rating {
+    font-size: 18px;
+    color: #f1c40f;
+    font-weight: bold;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.review-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.review-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.review-email {
+    color: #3498db;
+    font-size: 14px;
+}
+
+/* Форма отзыва */
+.leave-review {
+    background: #f1f3f4;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.leave-review h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.review-form {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    margin-bottom: 40px;
+}
+
+.review-form .form-group {
+    margin-bottom: 15px;
+}
+
+.review-form label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.review-form input,
+.review-form textarea,
+.review-form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.review-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.review-form button[type="submit"] {
+    padding: 12px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.review-form button[type="submit"]:hover {
+    background: #2980b9;
+}
+
+/* Сообщения об ошибках/успехе */
+.review-message {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.review-message.error {
+    background-color: #fdecea;
+    color: #e74c3c;
+    border-left: 4px solid #e74c3c;
+}
+
+.review-message.success {
+    background-color: #e8f5e9;
+    color: #27ae60;
+    border-left: 4px solid #27ae60;
+}
+
+/* Адаптивность для отзывов */
+@media (max-width: 768px) {
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .review-meta {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .review-form {
+        padding: 20px 15px;
+    }
+}
+
+.reviews-btn {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.reviews-btn:hover {
+    background-color: #45a049;
+}

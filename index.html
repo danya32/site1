@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="manifest" href="manifest.json">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>УмникУм - Поиск репетиторов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-header">
+        <a href="index.html" class="logo">💡 УмникУм</a>
+        <div class="search-box">
+            <input type="text" placeholder="Поиск репетиторов...">
+        </div>
+        <div class="auth-buttons">
+            <button class="login-btn" onclick="window.location.href='login.html'">Войти</button>
+            <button class="register-btn" onclick="window.location.href='register_student.html'">Регистрация</button>
+        </div>
+    </div>
+    
+    <div class="filters-container">
+        <div class="filters">
+            <div class="filter-dropdown">
+                <button class="filter-btn">Класс</button>
+                <div class="dropdown-content">
+                    <a href="teachers.html">1-4 класс</a>
+                    <a href="teachers.html">5-9 класс</a>
+                    <a href="teachers.html">10-11 класс</a>
+                    <a href="teachers.html">Студент</a>
+                </div>
+            </div>
+            <div class="filter-dropdown">
+                <button class="filter-btn">Предмет</button>
+                <div class="dropdown-content">
+                    <a href="teachers.html">Математика</a>
+                    <a href="teachers.html">Русский язык</a>
+                    <a href="teachers.html">Физика</a>
+                    <a href="teachers.html">Химия</a>
+                </div>
+            </div>
+            <div class="filter-dropdown">
+                <button class="filter-btn">Цель</button>
+                <div class="dropdown-content">
+                    <a href="teachers.html">Подготовиться к ЕГЭ</a>
+                    <a href="teachers.html">Подготовиться к ОГЭ</a>
+                    <a href="teachers.html">Улучшить оценки</a>
+                </div>
+            </div>
+            <div class="filter-dropdown">
+                <button class="filter-btn">Формат</button>
+                <div class="dropdown-content">
+                    <a href="teachers.html">Онлайн</a>
+                    <a href="teachers.html">Оффлайн</a>
+                    <a href="teachers.html">Курсы</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="index-content">
+        <div class="welcome-section">
+            <h2>Привет!</h2>
+            <h1>Это УмникУм</h1>
+            <p>Рассказываем, почему наши репетиторы помогут тебе</p>
+            <button class="reviews-btn" onclick="window.location.href='reviews.html'">Читать отзывы</button>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>ЕГЭ на 80+ баллов</h3>
+                <p>85 баллов в среднем получают за ЕГЭ ученики репетиторов «УмникУма»</p>
+            </div>
+            <div class="feature-card">
+                <h3>Индивидуальный подход</h3>
+                <p>Занятия в комфортном темпе, с программой под ваши цели</p>
+            </div>
+            <div class="feature-card">
+                <h3>Репетиторы — эксперты по ЕГЭ</h3>
+                <p>Расскажут все тонкости и ловушки экзамена</p>
+            </div>
+            <div class="feature-card">
+                <h3>Всё, что нужно для подготовки</h3>
+                <p>Календарь планирования, тренажёры и пробники</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 УмникУм. Все права защищены.</p>
+        <p>Телефон: +7 (123) 456-7890 | Email: info@umnikum.ru</p>
+    </footer>
+</body>
+</html>
